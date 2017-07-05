@@ -1,0 +1,163 @@
+
+<head>
+	<title>LAWNMOWAH MANG</title>
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="stylesheet" type="text/css" href="noUiSlider/nouislider.css">
+	<script src="fastclick.js"></script>
+	<script src="noUiSlider/nouislider.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+
+<div id="next-button"></div>
+<div id="stats-button"><a href="stats.html">STATS</a></div>
+
+<div id="scaler" class="scaler" ><p class="scaler-text">SCALE</p></div>
+
+<div id="color-slider" class="">
+	<div class="bw-picker" id="black"></div><div class="bw-picker" id="white"></div><p class="color-slider-text">COLOR</p>
+</div>
+
+	<div class="section" id="avatar-view">
+	<div class="bg-change"></div>
+		<div class="avatar">
+			<img id="body" src="images/ears0.png">
+			<img data-category="skin" id="worn-skin" class="clothing" src="images/items/skins/skin0.png">
+			<img data-category="head" id="worn-head" class="skinnable clothing" src="images/items/heads/head0.png">
+			<img data-category="top" id="worn-top" class="clothing" src="images/items/tops/top0.png">
+			<img data-category="bottom" id="worn-bottom" class="clothing" src="images/items/bottoms/bottom0.png">
+			<img data-category="hair" id="worn-hair" class="clothing" src="images/items/hairs/hair0.png">
+			<img data-category="shoe" id="worn-shoe" class="clothing" src="images/items/shoes/shoe0.png">
+			<img data-category="eye" id="worn-eye" class="clothing" src="images/items/eyes/eye0.png">
+			<img data-category="eyebrow" id="worn-eyebrow" class="clothing" src="images/items/eyebrows/eyebrow0.png">
+			<img data-category="spectacle" id="worn-spectacle" class="clothing" >
+			<img data-category="nose" id="worn-nose" class="clothing" src="images/items/noses/nose0.png">
+			<img data-category="mouth" id="worn-mouth" class="clothing" src="images/items/mouths/mouth0.png">
+		</div>
+	</div>
+	
+	<div id="selectors">
+		<div class="section" id="category-view">
+			<ul>
+				<div><li data-category="skins" class="category category-selected">SKIN TONE</li></div>
+				<div><li data-category="heads" id="headCategory" class="category ">HEAD SHAPE</li></div>
+				<div><li data-category="tops" class="bw-able color-adjustable category">TOPS</li></div>
+				<div><li data-category="bottoms" class="bw-able color-adjustable category">BOTTOMS</li></div>
+				<div><li data-category="shoes" class="bw-able color-adjustable category">SHOES</li></div>
+				<div><li data-category="hairs" class="bw-able color-adjustable category">HAIR</li></div>
+				<div><li data-category="eyes" class="color-adjustable scalable category">EYES</li></div>
+				<div><li data-category="eyebrows" class="scalable category">EYEBROWS</li></div>
+				<div><li data-category="spectacles" class="category">GLASSES</li></div>
+				<div><li data-category="noses" class="scalable category nose-button">NOSE</li></div>
+				<div><li data-category="mouths" class="scalable category">MOUTH</li></div>
+			</ul>
+		</div>
+		<div data-category="skins" class="skins-section open-items section" id="item-view">
+			<ul>
+				<li data-itemnumber="0" class=" item-selected skins item item-container"></li>
+				<li data-itemnumber="1" class=" skins item item-container"></li>
+				<li data-itemnumber="2" class=" skins item item-container"></li>
+				<li data-itemnumber="3" class=" skins item item-container"></li>
+			</ul>
+		</div> 
+		<div data-category="heads" class="heads-section section" id="item-view">
+			<ul>
+				<li data-itemnumber="0" class=" item-selected heads item item-container"></li>
+				<li data-itemnumber="1" class=" heads item item-container"></li>
+				<li data-itemnumber="2" class=" heads item item-container"></li>
+				<li data-itemnumber="3" class=" heads item item-container"></li>
+			</ul>
+		</div> 
+
+		<div data-category="tops" class="tops-section section" id="item-view">
+			<ul>
+				<li data-itemnumber="0" class=" item-selected tops item item-container"></li>
+			</ul>
+		</div> 
+
+		<div data-category="bottoms" class="bottoms-section section" id="item-view">
+			<ul>
+				<li data-itemnumber="0" class="item-selected bottoms item item-container"></li>
+			</ul>
+		</div>
+
+		<div data-category="hairs" class="hairs-section section" id="item-view">
+			<ul>
+				<li data-itemnumber="0" class="item-selected hairs item item-container"></li>
+			</ul>
+		</div>
+
+		<div data-category="shoes" class="shoes-section section" id="item-view">
+			<ul>
+				<li data-itemnumber="0" class="item-selected shoes item item-container"></li>
+			</ul>
+		</div>
+
+		<div data-category="eyes" class="eyes-section section" id="item-view">
+			<ul>
+				<li data-itemnumber="0" class="item-selected eyes item item-container"></li>
+				<li data-itemnumber="1" class="eyes item item-container"></li>
+				<li data-itemnumber="2" class="eyes item item-container"></li>
+				<li data-itemnumber="3" class="eyes item item-container"></li>
+				<li data-itemnumber="4" class="eyes item item-container"></li>
+				<li data-itemnumber="5" class="eyes item item-container"></li>
+				<li data-itemnumber="6" class="eyes item item-container"></li>
+				<li data-itemnumber="7" class="eyes item item-container"></li>
+				<li data-itemnumber="8" class="eyes item item-container"></li>
+				<li data-itemnumber="9" class="eyes item item-container"></li>
+			</ul>
+		</div>
+
+		<div data-category="eyebrows" class="eyebrows-section section" id="item-view">
+			<ul>
+				<li data-itemnumber="0" class="item-selected eyebrows item item-container"></li>
+				<li data-itemnumber="1" class="eyebrows item item-container"></li>
+				<li data-itemnumber="2" class="eyebrows item item-container"></li>
+				<li data-itemnumber="3" class="eyebrows item item-container"></li>
+				<li data-itemnumber="4" class="eyebrows item item-container"></li>
+				<li data-itemnumber="5" class="eyebrows item item-container"></li>
+				<li data-itemnumber="6" class="eyebrows item item-container"></li>
+				<li data-itemnumber="7" class="eyebrows item item-container"></li>
+			</ul>
+		</div>
+
+		<div data-category="spectacles" class="spectacles-section section" id="item-view">
+			<ul>
+				<li data-itemnumber="0" class="spectacles item item-container"></li>
+				<li data-itemnumber="1" class="spectacles item item-container"></li>
+				<li data-itemnumber="2" class="spectacles item item-container"></li>
+				<li data-itemnumber="3" class="spectacles item item-container"></li>
+				<li class="no-item item item-selected spectacles item-container"></li>
+			</ul>
+		</div>
+
+		<div data-category="noses" class="noses-section section" id="item-view">
+			<ul>
+				<li data-itemnumber="0" class="item-selected noses item item-container"></li>
+				<li data-itemnumber="1" class="noses item item-container"></li>
+				<li data-itemnumber="2" class="noses item item-container"></li>
+				<li data-itemnumber="3" class="noses item item-container"></li>
+				<li data-itemnumber="4" class="noses item item-container"></li>
+				<li data-itemnumber="5" class="noses item item-container"></li>
+				<li data-itemnumber="6" class="noses item item-container"></li>
+			</ul>
+		</div>
+
+		<div data-category="mouths" class="mouths-section section" id="item-view">
+			<ul>
+				<li data-itemnumber="0" class="item-selected mouths item item-container"></li>
+				<li data-itemnumber="1" class="mouths item item-container"></li>
+				<li data-itemnumber="2" class="mouths item item-container"></li>
+				<li data-itemnumber="3" class="mouths item item-container"></li>
+				<li data-itemnumber="4" class="mouths item item-container"></li>
+				<li data-itemnumber="5" class="mouths item item-container"></li>
+				<li data-itemnumber="6" class="mouths item item-container"></li>
+				<li data-itemnumber="7" class="mouths item item-container"></li>
+			</ul>
+		</div> 
+
+	</div>
+</body>
+# <%= javascript_include_tag('test.js') %>

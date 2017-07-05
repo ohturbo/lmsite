@@ -1,0 +1,324 @@
+$charcoal: #2b2b2b;
+$off-white: #fdfdfd;
+$granite: #d4d4d4;
+$ash: #fafafa;
+$category-view: #ffffff;
+$primary-color: #002E44; 
+
+html, body {
+	font-family: 'Montserrat', sans-serif;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+.section {
+	width: 100%;
+}
+
+.bg-change {
+	position: absolute;
+	left: 15px;
+	top: 15px;
+	width: 25px;
+	height: 25px;
+	border-radius: 25px;
+	border: solid 1px #DDDDFF;
+	background-image: url('UI/bg-icon.png');
+	background-size: cover;
+	background-color: #DDDDFF;
+}
+
+.bg-change:hover {
+	cursor: pointer;
+}
+
+#next-button {
+	position: absolute;
+	background-image: url('UI/next.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	right: 15px;
+	top: 15px;
+	height: 21px;
+	width: 26px;
+}
+
+#stats-button {
+	position: absolute;
+	bottom: 118px;
+	left: 15px;
+	font-size: 10px;
+}
+
+#next-button:hover {
+	cursor: pointer;
+}
+
+#avatar-view {
+	background-color: $ash;
+	height: 100%;
+	display: flex;
+	overflow: hidden;
+	background-image: url('UI/bg0.png');
+	background-size: cover;
+    background-position-y: -60px;
+	.avatar {
+		height: 300px;
+		margin: auto;
+		margin-top: 60px;
+		display: flex;
+		position: relative;
+		#body {
+			opacity: 0;
+			z-index: 3;
+			display: block;
+			height: 110%;
+			margin: auto;
+		}
+		#worn-skin {
+			z-index: 0;
+			position: absolute;
+		    width: 119%;
+		    left: -23.7px;
+		    top: -15px;
+		}
+		.clothing {
+			position: absolute;
+			display: block;
+		}
+		#worn-head {
+	        z-index: 3;
+		    width: 82%;
+		    left: 25px;
+		    top: 41px;
+		}
+		#worn-bottom {
+			z-index: 1;
+			top: 205px;
+		    left: 0px;
+		    width: 100%;
+		}
+		#worn-top {
+		    z-index: 2;
+		    top: 205px;
+		    left: 0px;
+		    width: 100%;
+		}
+		#worn-hair {
+			z-index:3;
+	        top: 8px;
+		    left: 37px;
+		    width: 69.5%;
+		}
+		#worn-shoe {
+            top: 205px;
+            width: 100%;
+            left: 0px;
+		}
+		#worn-eye {
+	        z-index: 3;
+		    top: 96px;
+		    left: 25px;
+		    width: 80.5%;
+		}
+		#worn-eyebrow {
+		    z-index: 3;
+		    top: 90px;
+		    left: 24px;
+		    width: 81%;
+		}
+		#worn-spectacle {
+		    z-index: 4;
+		    width: 75%;
+		    left: 32px;
+		    top: 104px;
+		}
+		#worn-nose {
+		    z-index: 3;
+		    top: 122px;
+		    left: 97.5px;
+		    width: 21.8%;
+		}
+
+		#worn-mouth {
+		    top: 167px;
+		    left: 32px;
+		    z-index: 3;
+		    width: 76%;
+		}
+	}
+}
+
+#selectors {
+	z-index: 21;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+
+.category:hover {
+	cursor: pointer;
+}
+
+#category-view {
+	overflow-y: scroll; /* has to be scroll, not auto */
+	-webkit-overflow-scrolling: touch;
+	height: 40px;
+	background-color: $category-view;
+	display: flex;
+	margin-bottom: -1px;
+	border-bottom: 1px solid black;
+	ul {
+		overflow: scroll;
+		padding: 0;
+		list-style-type: none;
+		display: -webkit-inline-box;
+		float: left;
+		margin: auto;
+		li {
+			color: $primary-color;
+			margin-right: 20px;
+			margin-left: 20px;
+			margin-top: 10px;
+    		padding-bottom: 4px;
+    		font-size: 18px;
+		}
+	}
+}
+
+.category-selected {
+	border-bottom: 3px solid $primary-color;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+#scaler {
+	opacity: 0;
+	z-index: 20;
+    height: 100px;
+    right: 70px;
+    position: absolute;
+    bottom: 40px;
+    transition-property: opacity, bottom;
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.17, 1.21);
+}
+
+.scaler-text {
+	text-shadow: #002e44 0px 0px 10px;
+	color: white;
+    position: absolute;
+    bottom: -30px;
+    right: -7px;
+    font-size: 10px;
+}
+
+#black {
+	background-color: black;
+	border: white solid 1px;
+	top: -40px;
+}
+
+#white {
+	background-color: white;
+	border: black solid 1px;
+	top: -75px;
+}
+
+.bw-picker {
+	z-index: 20;
+	position: absolute;
+	right: -5px;
+	border-radius: 25px;
+	height: 26px;
+	width: 26px;
+}
+
+#color-slider {
+	opacity: 0;
+	z-index: 20;
+	height: 100px;
+    right: 15px;
+    position: absolute;
+    bottom: -40px;
+    transition-property: opacity, bottom;
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.17, 1.21);
+}
+
+.color-slider-text {
+	text-shadow: #002e44 0px 0px 10px;
+	color: white;
+    position: absolute;
+    bottom: -30px;
+    right: -7px;
+    font-size: 10px;
+}
+
+.slider-active {
+	opacity: 1 !important;
+	display: block !important;
+    bottom: 136px !important;
+}
+
+#item-view {
+	height: 70px;
+	background-color: $off-white;
+	display: none;
+	ul {
+		overflow: scroll;
+		padding: 0;
+		margin: auto;
+		display: -webkit-inline-box;
+
+		:first-child{
+			margin-left: 15px;
+		}
+	}
+}
+
+.shoes {
+    background-position-x: -65px !important;
+    background-position-y: -103px !important;
+    background-size: 236px !important;
+}
+
+.open-items{
+	display: flex !important;
+	overflow-y: scroll; /* has to be scroll, not auto */
+	-webkit-overflow-scrolling: touch;
+}
+
+.item-container {
+	height: 50px;
+	width: 50px;
+	padding: 0;
+	list-style-type: none;
+	margin-left: 15px;
+	margin-right: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-bottom: 1px;
+}
+
+.item-container:hover {
+	cursor:pointer;
+}
+
+.item-selected {
+	border-bottom: 2px solid black;
+	transform: scale(1.05);
+}
