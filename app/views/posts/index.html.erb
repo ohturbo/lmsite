@@ -8,11 +8,12 @@
 	<script src="fastclick.js"></script>
 	<script src="noUiSlider/nouislider.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<%= stylesheet_link_tag 'posts'%>
 </head>
 <body>
 
 <div id="next-button"></div>
-<div id="stats-button"><a href="stats.html">STATS</a></div>
+<div id="stats-button"><%= link_to 'comments', 'comments'%></div>
 
 <div id="scaler" class="scaler" ><p class="scaler-text">SCALE</p></div>
 
@@ -160,4 +161,4 @@
 
 	</div>
 </body>
-# <%= javascript_include_tag('test.js') %>
+<%= javascript_include_tag('test.js') %>
