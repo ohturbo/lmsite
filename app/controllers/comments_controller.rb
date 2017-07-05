@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 	before_action :find_post, only: [:show]
 	def index
-		
+		@comments = Comment.all.order("created_at DESC")
 	end
 
 	def show
