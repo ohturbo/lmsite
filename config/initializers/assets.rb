@@ -16,3 +16,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w( test.js )
 Rails.application.config.assets.precompile += %w( posts.scss )
+Rails.application.config.assets.precompile += %w( comments.css )
