@@ -128,14 +128,17 @@ Array.from(categories).forEach(function (category) {
 
 	blackColor.addEventListener('click', function () {
 		currentItem.style.filter = 'grayscale(200%) brightness(0.5)';
+		hairBacking.style.filter = 'grayscale(200%) brightness(0.5)';
 	});
 
 	whiteColor.addEventListener('click', function () {
 		currentItem.style.filter = 'grayscale(2) brightness(190%)';
+		hairBacking.style.filter = 'grayscale(2) brightness(190%)';
 	});
 
 	colorAdjuster.noUiSlider.on('slide', function () {
 		currentItem.style.filter = 'hue-rotate(' + colorAdjuster.noUiSlider.get() + 'deg)';
+		hairBacking.style.filter = 'hue-rotate(' + colorAdjuster.noUiSlider.get() + 'deg)';
 	});
 
 	category.addEventListener('click', function () {
@@ -210,6 +213,32 @@ Array.from(itemCategories).forEach(function (item) {
 		});
 	});
 });
+
+// HAIR CONTROL
+var currentHair = ''
+var hairBacking = document.querySelector('#hair-backing')
+
+var hairs = document.querySelectorAll('.hairs')
+
+Array.from(hairs).forEach(function(hair){
+	hair.addEventListener('click', function(){
+		console.log('hello')
+		var currentHair = document.querySelector('#worn-hair').src.match(/\d.png/)[0]
+		if (currentHair[0] === '1' ){
+			hairBacking.src = "images/items/hairs/hairb1.png"
+		} else if (currentHair[0] === '4') {
+			hairBacking.src = "images/items/hairs/hairb4.png"
+		} else {
+			hairBacking.src = "";
+		}
+	})
+})
+
+
+
+
+
+
 
 // SKIN CONTROL
 var currentSkin = ''

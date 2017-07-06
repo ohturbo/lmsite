@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag 'comments'%>
-<h1>Comments</h1>
+<%= link_to "Home", root_path %>
+<h1 class="comments-header">Comments</h1>
 
 <% @comments.each do |comment| %>
 <div class="comment">

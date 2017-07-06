@@ -84,6 +84,7 @@ a {
 	background-image: url('UI/bg0.png');
 	background-size: cover;
     background-position-y: -60px;
+    z-index: -1;
 	.avatar {
 		height: 300px;
 		margin: auto;
@@ -98,7 +99,7 @@ a {
 			margin: auto;
 		}
 		#worn-skin {
-			z-index: 0;
+			z-index: 4;
 			position: absolute;
 		    width: 119%;
 		    left: -23.7px;
@@ -109,69 +110,75 @@ a {
 			display: block;
 		}
 		#worn-head {
-	        z-index: 3;
+	        z-index: 7;
 		    width: 82%;
 		    left: 25px;
 		    top: 41px;
 		}
 		#worn-bottom {
-			z-index: 1;
+			z-index: 6;
 			top: 205px;
 		    left: 0px;
 		    width: 100%;
 		}
 		#worn-top {
-		    z-index: 2;
+		    z-index: 6;
 		    top: 205px;
 		    left: 0px;
 		    width: 100%;
 		}
 		#worn-hair {
-			z-index:3;
-	        top: 8px;
-		    left: 37px;
-		    width: 69.5%;
+			z-index: 8;
+		}
+		#hair-backing{
+			z-index: 3;
+		}
+		#hair-backing, #worn-hair {
+	        top: -2px;
+		    left: 4px;
+		    width: 98%;
 		}
 		#worn-shoe {
+			z-index: 6;
             top: 205px;
             width: 100%;
             left: 0px;
 		}
 		#worn-eye {
-	        z-index: 3;
+	        z-index: 7;
 		    top: 96px;
 		    left: 25px;
 		    width: 80.5%;
 		}
 		#worn-eyebrow {
-		    z-index: 3;
+		    z-index: 7;
 		    top: 90px;
 		    left: 24px;
 		    width: 81%;
 		}
 		#worn-spectacle {
-		    z-index: 4;
+		    z-index: 9;
 		    width: 75%;
 		    left: 32px;
 		    top: 104px;
 		}
 		#worn-nose {
-		    z-index: 4;
+		    z-index: 8;
 		    top: 122px;
 		    left: 97.5px;
 		    width: 21.8%;
 		}
 
 		#worn-mouth {
+		    z-index: 7;
 		    top: 167px;
 		    left: 32px;
-		    z-index: 3;
 		    width: 76%;
 		}
 
 		#worn-facehair {
+		    z-index: 7;
 			width: 81%;
-		    z-index: 3;
 		    top: 128px;
 		    left: 26px;
 		}
