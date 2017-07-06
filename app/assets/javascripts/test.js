@@ -222,7 +222,6 @@ var hairs = document.querySelectorAll('.hairs')
 
 Array.from(hairs).forEach(function(hair){
 	hair.addEventListener('click', function(){
-		console.log('hello')
 		var currentHair = document.querySelector('#worn-hair').src.match(/\d.png/)[0]
 		if (currentHair[0] === '1' ){
 			hairBacking.src = "images/items/hairs/hairb1.png"
