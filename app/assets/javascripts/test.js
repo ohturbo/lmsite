@@ -180,7 +180,7 @@ Array.from(categories).forEach(function (category) {
 }
 
 // ITEM CONTROL
-);var itemCategories = ['skin', 'top', 'bottom', 'shoe', 'hair', 'eye', 'nose', 'mouth', 'eyebrow', 'spectacle', 'head'];
+);var itemCategories = ['skin', 'top', 'bottom', 'shoe', 'hair', 'eye', 'nose', 'mouth', 'eyebrow', 'spectacle', 'facehair','head'];
 var noItem = document.querySelector('.no-item');
 
 Array.from(itemCategories).forEach(function (item) {

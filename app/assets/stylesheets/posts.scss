@@ -156,7 +156,7 @@ a {
 		    top: 104px;
 		}
 		#worn-nose {
-		    z-index: 3;
+		    z-index: 4;
 		    top: 122px;
 		    left: 97.5px;
 		    width: 21.8%;
@@ -167,6 +167,13 @@ a {
 		    left: 32px;
 		    z-index: 3;
 		    width: 76%;
+		}
+
+		#worn-facehair {
+			width: 81%;
+		    z-index: 3;
+		    top: 128px;
+		    left: 26px;
 		}
 	}
 }
