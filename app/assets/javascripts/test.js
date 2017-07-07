@@ -191,7 +191,12 @@ Array.from(itemCategories).forEach(function (item) {
 	var category = document.querySelectorAll('.' + item + 's');
 	for (var i = 0; i < category.length; i++) {
 		category[i].style.backgroundImage = 'url(images/items/' + item + 's/' + item + i + '.png)';
+
+		if (category[i].classList.contains('no-item')){
+			category[i].style.backgroundImage = 'url(images/items/no-item.png)'
+		}
 	}
+
 	var selectedItem = '';
 	category.forEach(function (item) {
 		item.addEventListener('click', function () {
@@ -223,12 +228,14 @@ var hairs = document.querySelectorAll('.hairs')
 Array.from(hairs).forEach(function(hair){
 	hair.addEventListener('click', function(){
 		var currentHair = document.querySelector('#worn-hair').src.match(/\d.png/)[0]
+		hairBacking.style.opacity = "1";
 		if (currentHair[0] === '1' ){
 			hairBacking.src = "images/items/hairs/hairb1.png"
 		} else if (currentHair[0] === '4') {
 			hairBacking.src = "images/items/hairs/hairb4.png"
 		} else {
 			hairBacking.src = "";
+			hairBacking.style.opacity = "0";
 		}
 	})
 })

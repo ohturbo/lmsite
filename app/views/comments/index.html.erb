@@ -1,11 +1,11 @@
 <%= stylesheet_link_tag 'comments'%>
-<%= link_to "Home", root_path %>
+<%= link_to "Home", root_path, :class => 'home' %>
 <h1 class="comments-header">Comments</h1>
 
 <% @comments.each do |comment| %>
 <div class="comment">
-	<h3><%= comment.content %></h3>
-	<p><%= (comment.created_at).strftime("%I:%M:%S %p, %d %b %Y, %Z") %> by <%= comment.user.email%></p>
+	<p class="comment-content"><%= comment.content %></p>
+	<p class="comment-stamp"><%= (comment.created_at).strftime("%I:%M:%S %p, %d %b %Y, %Z") %> by <%= comment.user.email%></p>
 	<%= link_to "Delete", comment, method: :delete, data: {confirm: "You sure?"}, class: 'label alert' %>
 	<br>
 </div>
