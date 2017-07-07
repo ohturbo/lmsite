@@ -214,7 +214,7 @@ Array.from(itemCategories).forEach(function (item) {
 	});
 });
 
-// HAIR CONTROL
+// HAIR BACKING CONTROL
 var currentHair = ''
 var hairBacking = document.querySelector('#hair-backing')
 
@@ -232,12 +232,6 @@ Array.from(hairs).forEach(function(hair){
 		}
 	})
 })
-
-
-
-
-
-
 
 // SKIN CONTROL
 var currentSkin = ''
@@ -268,9 +262,10 @@ document.querySelector('#headCategory').addEventListener('click', function(){
 		for (var i = 0; i < skinableCategory.length; i++) {
 			skinableCategory[i].style.backgroundImage = 'url(images/items/' + item + 's/' + item + currentSkin + i + '.png)';
 		}
-	 })
+	})
 })
 
+// NOSE COLOR CONTROL
 document.querySelector('.nose-button').addEventListener('click', function(){
 	var noses = document.querySelectorAll('.noses');
 	for (var i = 0; i < noses.length; i++){
@@ -301,6 +296,42 @@ document.querySelectorAll('.noses').forEach(function(nose){
 			document.querySelector('#worn-nose').src = 'images/items/noses/nose' + currentNose[0] + '.png'
 		} else if (currentSkin ==='c' || currentSkin === 'd' ){
 			document.querySelector('#worn-nose').src = 'images/items/noses/noseb' + currentNose[0] + '.png'
+		} else { console.log("UH OH!")}
+	})
+})
+
+
+// MOUTH COLOR CONTROL
+document.querySelector('.mouth-button').addEventListener('click', function(){
+	var mouths = document.querySelectorAll('.mouths');
+	for (var i = 0; i < mouths.length; i++){
+		if ( currentSkin == '' || currentSkin == 'b' ){
+			mouths[i].style.backgroundImage = 'url(images/items/mouths/mouth' + i + '.png)'
+		} else if (currentSkin == 'c' || currentSkin == 'd' ){
+			mouths[i].style.backgroundImage = 'url(images/items/mouths/mouthb' + i + '.png)'
+		}
+	}
+})
+
+var currentMouth = '';
+document.querySelectorAll('.skins').forEach(function(skin){
+	skin.addEventListener('click', function(){
+		currentMouth = document.querySelector('#worn-mouth').src.match(/\d.png/)[0]
+		if (currentSkin === '' || currentSkin === 'b' ){
+			document.querySelector('#worn-mouth').src = 'images/items/mouths/mouth' + currentMouth[0] + '.png'
+		} else if (currentSkin === 'c' || currentSkin === 'd' ){
+			document.querySelector('#worn-mouth').src = 'images/items/mouths/mouthb' + currentMouth[0] + '.png'
+		} 
+	})
+})
+
+document.querySelectorAll('.mouths').forEach(function(mouth){
+	mouth.addEventListener('click', function(){
+		var currentMouth = document.querySelector('#worn-mouth').src.match(/\d.png/)[0]
+		if (currentSkin[0] === '0' || currentSkin[0] === 'b' ){
+			document.querySelector('#worn-mouth').src = 'images/items/mouths/mouth' + currentMouth[0] + '.png'
+		} else if (currentSkin[0] ==='c' || currentSkin[0] === 'd' ){
+			document.querySelector('#worn-mouth').src = 'images/items/mouths/mouthb' + currentMouth[0] + '.png'
 		} else { console.log("UH OH!")}
 	})
 })
