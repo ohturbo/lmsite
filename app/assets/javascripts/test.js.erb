@@ -1,5 +1,10 @@
 'use strict';
 
+
+if(window.innerHeight > window.innerWidth){
+    document.getElementsByTagName("body")[0].style.transform = "rotate(90deg)";
+}
+
 var selectButton = document.querySelector('#next-button');
 var selections = {};
 
