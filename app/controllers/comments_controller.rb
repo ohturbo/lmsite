@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 	def index
 		@comments = Comment.all.order("created_at DESC")
+		@posts = Post.all.order("created_at DESC")
 	end
 
 	def show

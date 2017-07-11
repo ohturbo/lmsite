@@ -1,6 +1,51 @@
 'use strict';
 
 var selectButton = document.querySelector('#next-button');
+var selections = {};
+
+var selectedSkin = document.getElementById('post_skin');
+var selectedhead = document.getElementById('post_head');
+var selectedTop = document.getElementById('post_top');
+var selectedBottom = document.getElementById('post_bottom');
+var selectedHair = document.getElementById('post_hair');
+var selectedHairbacking = document.getElementById('post_hairbacking');
+var selectedShoe = document.getElementById('post_shoe');
+var selectedEye = document.getElementById('post_eye');
+var selectedEyebrow = document.getElementById('post_eyebrow');
+var selectedGlasses = document.getElementById('post_spectacles');
+var selectedNose = document.getElementById('post_nose');
+var selectedMouth = document.getElementById('post_mouth');
+var selectedFacehair = document.getElementById('post_facehair');
+
+selectButton.addEventListener('click', function(){
+	selectedSkin.value = document.querySelector("#worn-skin").src.match(/images.+$/)[0]
+	selectedhead.value = document.querySelector("#worn-head").src.match(/images.+$/)[0]
+	selectedTop.value = document.querySelector("#worn-top").src.match(/images.+$/)[0]
+	selectedBottom.value = document.querySelector("#worn-bottom").src.match(/images.+$/)[0]
+	selectedHair.value = document.querySelector("#worn-hair").src.match(/images.+$/)[0]
+	if (document.querySelector("#hair-backing").src.indexOf("hair") != -1 ){
+		selectedHairbacking.value = document.querySelector("#hair-backing").src.match(/images.+$/)[0]
+	} else {
+		selectedHairbacking.value = ''
+	}
+	selectedShoe.value = document.querySelector("#worn-shoe").src.match(/images.+$/)[0]
+	selectedEye.value = document.querySelector("#worn-eye").src.match(/images.+$/)[0]
+	selectedEyebrow.value = document.querySelector("#worn-eyebrow").src.match(/images.+$/)[0]
+	if (document.querySelector("#worn-spectacle").src.indexOf("spectacle") != -1 ){ 
+		selectedGlasses.value = document.querySelector("#worn-spectacle").src.match(/images.+$/)[0]
+	} else {
+		selectedGlasses.value = ''
+	}
+	selectedNose.value = document.querySelector("#worn-nose").src.match(/images.+$/)[0]
+	selectedMouth.value = document.querySelector("#worn-mouth").src.match(/images.+$/)[0]
+	if (document.querySelector("#worn-facehair").src.indexOf("face") != -1 ){ 
+		selectedFacehair.value = document.querySelector("#worn-facehair").src.match(/images.+$/)[0]
+	} else {
+		selectedFacehair.value = ''
+	}
+})
+
+
 
 // MISC FUNCTIONS AND VARIABLES
 
@@ -167,13 +212,13 @@ var itemViews = document.querySelectorAll('#item-view');
 var selectedCategory = '';
 Array.from(categories).forEach(function (category) {
 	category.addEventListener('click', function () {
-		categories.forEach(function (sibling) {
+		Array.from(categories).forEach(function (sibling) {
 			sibling.classList.remove('category-selected');
 		});
 		category.classList.add('category-selected');
 		selectedCategory = category.dataset.category;
 
-		itemViews.forEach(function (itemView) {
+		Array.from(itemViews).forEach(function (itemView) {
 			itemView.classList.remove('open-items');
 			if (category.dataset.category == itemView.dataset.category) {
 				itemView.classList.add('open-items');
@@ -190,30 +235,30 @@ Array.from(itemCategories).forEach(function (item) {
 	var wornItem = document.querySelector('#worn-' + item);
 	var category = document.querySelectorAll('.' + item + 's');
 	for (var i = 0; i < category.length; i++) {
-		category[i].style.backgroundImage = 'url(images/items/' + item + 's/' + item + i + '.png)';
+		category[i].style.backgroundImage = 'url(/images/items/' + item + 's/' + item + i + '.png)';
 
 		if (category[i].classList.contains('no-item')){
-			category[i].style.backgroundImage = 'url(images/items/no-item.png)'
+			category[i].style.backgroundImage = 'url(/images/items/no-item.png)'
 		}
 	}
 
 	var selectedItem = '';
-	category.forEach(function (item) {
+	Array.from(category).forEach(function (item) {
 		item.addEventListener('click', function () {
 			if (item.classList.contains('no-item')) {
 				wornItem.style.display = 'none';
 			} else {
 				wornItem.style.display = 'block';
 			}
-			category.forEach(function (sibling) {
+			Array.from(category).forEach(function (sibling) {
 				sibling.classList.remove('item-selected');
 			});
 			item.classList.add('item-selected');
 			selectedItem = item.dataset.itemnumber;
 			if (!item.classList.contains('no-item') && wornItem.classList.contains('skinnable')) {
-				wornItem.src = 'images/items/' + wornItem.dataset.category + 's/' + wornItem.dataset.category + currentSkin + selectedItem + '.png';
+				wornItem.src = '/images/items/' + wornItem.dataset.category + 's/' + wornItem.dataset.category + currentSkin + selectedItem + '.png';
 			} else {
-				wornItem.src = 'images/items/' + wornItem.dataset.category + 's/' + wornItem.dataset.category + selectedItem + '.png';
+				wornItem.src = '/images/items/' + wornItem.dataset.category + 's/' + wornItem.dataset.category + selectedItem + '.png';
 			}
 		});
 	});
@@ -227,12 +272,16 @@ var hairs = document.querySelectorAll('.hairs')
 
 Array.from(hairs).forEach(function(hair){
 	hair.addEventListener('click', function(){
-		var currentHair = document.querySelector('#worn-hair').src.match(/\d.png/)[0]
+		var currentHair = document.querySelector('#worn-hair').src.match(/\d+.png/)[0]
 		hairBacking.style.opacity = "1";
-		if (currentHair[0] === '1' ){
-			hairBacking.src = "images/items/hairs/hairb1.png"
-		} else if (currentHair[0] === '4') {
-			hairBacking.src = "images/items/hairs/hairb4.png"
+		if (currentHair === '1.png' ){
+			hairBacking.src = "/images/items/hairs/hairb1.png"
+		} else if (currentHair === '4.png') {
+			hairBacking.src = "/images/items/hairs/hairb4.png"
+		} else if (currentHair === '6.png'){
+			hairBacking.src = "/images/items/hairs/hairb6.png"
+		} else if (currentHair === '11.png') {
+			hairBacking.src = "/images/items/hairs/hairb11.png"
 		} else {
 			hairBacking.src = "";
 			hairBacking.style.opacity = "0";
@@ -265,9 +314,9 @@ Array.from(skins).forEach(function(skin){
 
 document.querySelector('#headCategory').addEventListener('click', function(){
 	var skinableCategory = document.querySelectorAll('.heads')
-	itemCategories.forEach(function (item) {
+	Array.from(itemCategories).forEach(function (item) {
 		for (var i = 0; i < skinableCategory.length; i++) {
-			skinableCategory[i].style.backgroundImage = 'url(images/items/' + item + 's/' + item + currentSkin + i + '.png)';
+			skinableCategory[i].style.backgroundImage = 'url(/images/items/' + item + 's/' + item + currentSkin + i + '.png)';
 		}
 	})
 })
@@ -277,15 +326,15 @@ document.querySelector('.nose-button').addEventListener('click', function(){
 	var noses = document.querySelectorAll('.noses');
 	for (var i = 0; i < noses.length; i++){
 		if ( currentSkin == '' || currentSkin == 'b' ){
-			noses[i].style.backgroundImage = 'url(images/items/noses/nose' + i + '.png)'
+			noses[i].style.backgroundImage = 'url(/images/items/noses/nose' + i + '.png)'
 		} else if (currentSkin == 'c' || currentSkin == 'd' ){
-			noses[i].style.backgroundImage = 'url(images/items/noses/noseb' + i + '.png)'
+			noses[i].style.backgroundImage = 'url(/images/items/noses/noseb' + i + '.png)'
 		}
 	}
 })
 
 var currentNose = '';
-document.querySelectorAll('.skins').forEach(function(skin){
+Array.from(document.querySelectorAll('.skins')).forEach(function(skin){
 	skin.addEventListener('click', function(){
 		currentNose = document.querySelector('#worn-nose').src.match(/\d.png/)[0]
 		if (currentSkin === '' || currentSkin === 'b' ){
@@ -296,7 +345,7 @@ document.querySelectorAll('.skins').forEach(function(skin){
 	})
 })
 
-document.querySelectorAll('.noses').forEach(function(nose){
+Array.from(document.querySelectorAll('.noses')).forEach(function(nose){
 	nose.addEventListener('click', function(){
 		var currentNose = document.querySelector('#worn-nose').src.match(/\d.png/)[0]
 		if (currentSkin === '' || currentSkin === 'b' ){
@@ -313,15 +362,15 @@ document.querySelector('.mouth-button').addEventListener('click', function(){
 	var mouths = document.querySelectorAll('.mouths');
 	for (var i = 0; i < mouths.length; i++){
 		if ( currentSkin == '' || currentSkin == 'b' ){
-			mouths[i].style.backgroundImage = 'url(images/items/mouths/mouth' + i + '.png)'
+			mouths[i].style.backgroundImage = 'url(/images/items/mouths/mouth' + i + '.png)'
 		} else if (currentSkin == 'c' || currentSkin == 'd' ){
-			mouths[i].style.backgroundImage = 'url(images/items/mouths/mouthb' + i + '.png)'
+			mouths[i].style.backgroundImage = 'url(/images/items/mouths/mouthb' + i + '.png)'
 		}
 	}
 })
 
 var currentMouth = '';
-document.querySelectorAll('.skins').forEach(function(skin){
+Array.from(document.querySelectorAll('.skins')).forEach(function(skin){
 	skin.addEventListener('click', function(){
 		currentMouth = document.querySelector('#worn-mouth').src.match(/\d.png/)[0]
 		if (currentSkin === '' || currentSkin === 'b' ){
@@ -332,7 +381,7 @@ document.querySelectorAll('.skins').forEach(function(skin){
 	})
 })
 
-document.querySelectorAll('.mouths').forEach(function(mouth){
+Array.from(document.querySelectorAll('.mouths')).forEach(function(mouth){
 	mouth.addEventListener('click', function(){
 		var currentMouth = document.querySelector('#worn-mouth').src.match(/\d.png/)[0]
 		if (currentSkin[0] === '0' || currentSkin[0] === 'b' ){

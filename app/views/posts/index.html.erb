@@ -5,9 +5,30 @@
 	<%= stylesheet_link_tag 'posts'%>
 </head>
 <body>
-<a href="comments/new">
-<div id="next-button"></div>
-</a>
+<%= simple_form_for @post do |f| %>
+  <%= f.input :skin %>
+  <%= f.input :head %>
+  <%= f.input :top %>
+  <%= f.input :bottom %>
+  <%= f.input :shoe %>
+  <%= f.input :hair %>
+  <%= f.input :hairbacking %>
+  <%= f.input :eye %>
+  <%= f.input :eyebrow %>
+  <%= f.input :spectacles %>
+  <%= f.input :nose %>
+  <%= f.input :mouth %>
+  <%= f.input :facehair %>
+  <div id="next-button"><%= f.submit :a , :as => :hidden,
+      :input_html => {
+        :id => "submit-button"
+      } %></div>
+  
+<% end %>
+
+<!-- <a href="comments/new"> -->
+
+<!-- </a> -->
 
 
 <div id="stats-button"><%= link_to 'comments', 'comments'%></div>
@@ -92,6 +113,13 @@
 				<li data-itemnumber="3" class="hairs item item-container"></li>
 				<li data-itemnumber="4" class="hairs item item-container"></li>
 				<li data-itemnumber="5" class="hairs item item-container"></li>
+				<li data-itemnumber="6" class="hairs item item-container"></li>
+				<li data-itemnumber="7" class="hairs item item-container"></li>
+				<li data-itemnumber="8" class="hairs item item-container"></li>
+				<li data-itemnumber="9" class="hairs item item-container"></li>
+				<li data-itemnumber="10" class="hairs item item-container"></li>
+				<li data-itemnumber="11" class="hairs item item-container"></li>
+
 			</ul>
 		</div>
 
@@ -113,6 +141,7 @@
 				<li data-itemnumber="7" class="eyes item item-container"></li>
 				<li data-itemnumber="8" class="eyes item item-container"></li>
 				<li data-itemnumber="9" class="eyes item item-container"></li>
+				<li data-itemnumber="10" class="eyes item item-container"></li>
 			</ul>
 		</div>
 
@@ -135,6 +164,8 @@
 				<li data-itemnumber="1" class="spectacles item item-container"></li>
 				<li data-itemnumber="2" class="spectacles item item-container"></li>
 				<li data-itemnumber="3" class="spectacles item item-container"></li>
+				<li data-itemnumber="4" class="spectacles item item-container"></li>
+				<li data-itemnumber="5" class="spectacles item item-container"></li>
 				<li class="no-item item item-selected spectacles item-container"></li>
 			</ul>
 		</div>
