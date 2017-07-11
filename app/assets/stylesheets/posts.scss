@@ -45,7 +45,7 @@ a {
 	height: 25px;
 	border-radius: 25px;
 	border: solid 1px #DDDDFF;
-	background-image: url('UI/bg-icon.png');
+	background-image: image-url('bg-icon.png');
 	background-size: cover;
 	background-color: #DDDDFF;
 }
@@ -56,7 +56,7 @@ a {
 
 #next-button {
 	position: absolute;
-	background-image: url('UI/next.png');
+	background-image: image-url('next.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	right: 15px;
@@ -81,7 +81,7 @@ a {
 	height: 100%;
 	display: flex;
 	overflow: hidden;
-	background-image: url('UI/bg0.png');
+	background-image: image-url('bg0.png');
 	background-size: cover;
     background-position-y: -60px;
     z-index: -1;
