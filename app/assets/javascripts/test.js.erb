@@ -88,13 +88,13 @@ var bgButton = document.querySelector('.bg-change');
 var bgNumber = 0;
 bgButton.addEventListener('click', function () {
 	if (bgNumber == 0) {
-		avatarView.style.backgroundImage = 'url(/assets/UI/bg1.png)';
+		avatarView.style.backgroundImage = "url(<%= image_path('bg1.png') %>)";
 		bgNumber = 1;
 	} else if (bgNumber == 1) {
-		avatarView.style.backgroundImage = 'url(/assets/UI/bg2.png)';
+		avatarView.style.backgroundImage = "url(<%= image_path('bg2.png') %>)";
 		bgNumber = 2;
 	} else if (bgNumber == 2) {
-		avatarView.style.backgroundImage = 'url(/assets/UI/bg0.png)';
+		avatarView.style.backgroundImage = "url(<%= image_path('bg0.png') %>)";
 		bgNumber = 0;
 	}
 })
