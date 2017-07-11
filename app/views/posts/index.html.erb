@@ -8,9 +8,6 @@
 <%= simple_form_for @post do |f| %>
   <%= f.input :skin %>
   <%= f.input :head %>
-  <%= f.input :top %>
-  <%= f.input :bottom %>
-  <%= f.input :shoe %>
   <%= f.input :hair %>
   <%= f.input :hairbacking %>
   <%= f.input :eye %>
@@ -64,9 +61,6 @@
 			<ul>
 				<div><li data-category="skins" class="category category-selected">SKIN TONE</li></div>
 				<div><li data-category="heads" id="headCategory" class="category ">HEAD SHAPE</li></div>
-				<div><li data-category="tops" class="bw-able color-adjustable category">TOPS</li></div>
-				<div><li data-category="bottoms" class="bw-able color-adjustable category">BOTTOMS</li></div>
-				<div><li data-category="shoes" class="bw-able color-adjustable category">SHOES</li></div>
 				<div><li data-category="hairs" class="bw-able color-adjustable category">HAIR</li></div>
 				<div><li data-category="eyes" class="color-adjustable scalable category">EYES</li></div>
 				<div><li data-category="eyebrows" class="scalable category">EYEBROWS</li></div>
@@ -93,18 +87,6 @@
 			</ul>
 		</div> 
 
-		<div data-category="tops" class="tops-section section" id="item-view">
-			<ul>
-				<li data-itemnumber="0" class=" item-selected tops item item-container"></li>
-			</ul>
-		</div> 
-
-		<div data-category="bottoms" class="bottoms-section section" id="item-view">
-			<ul>
-				<li data-itemnumber="0" class="item-selected bottoms item item-container"></li>
-			</ul>
-		</div>
-
 		<div data-category="hairs" class="hairs-section section" id="item-view">
 			<ul>
 				<li data-itemnumber="0" class="item-selected hairs item item-container"></li>
@@ -120,12 +102,6 @@
 				<li data-itemnumber="10" class="hairs item item-container"></li>
 				<li data-itemnumber="11" class="hairs item item-container"></li>
 
-			</ul>
-		</div>
-
-		<div data-category="shoes" class="shoes-section section" id="item-view">
-			<ul>
-				<li data-itemnumber="0" class="item-selected shoes item item-container"></li>
 			</ul>
 		</div>
 

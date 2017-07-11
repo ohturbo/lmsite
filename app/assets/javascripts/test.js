@@ -5,11 +5,8 @@ var selections = {};
 
 var selectedSkin = document.getElementById('post_skin');
 var selectedhead = document.getElementById('post_head');
-var selectedTop = document.getElementById('post_top');
-var selectedBottom = document.getElementById('post_bottom');
 var selectedHair = document.getElementById('post_hair');
 var selectedHairbacking = document.getElementById('post_hairbacking');
-var selectedShoe = document.getElementById('post_shoe');
 var selectedEye = document.getElementById('post_eye');
 var selectedEyebrow = document.getElementById('post_eyebrow');
 var selectedGlasses = document.getElementById('post_spectacles');
@@ -20,15 +17,12 @@ var selectedFacehair = document.getElementById('post_facehair');
 selectButton.addEventListener('click', function(){
 	selectedSkin.value = document.querySelector("#worn-skin").src.match(/images.+$/)[0]
 	selectedhead.value = document.querySelector("#worn-head").src.match(/images.+$/)[0]
-	selectedTop.value = document.querySelector("#worn-top").src.match(/images.+$/)[0]
-	selectedBottom.value = document.querySelector("#worn-bottom").src.match(/images.+$/)[0]
 	selectedHair.value = document.querySelector("#worn-hair").src.match(/images.+$/)[0]
 	if (document.querySelector("#hair-backing").src.indexOf("hair") != -1 ){
 		selectedHairbacking.value = document.querySelector("#hair-backing").src.match(/images.+$/)[0]
 	} else {
 		selectedHairbacking.value = ''
 	}
-	selectedShoe.value = document.querySelector("#worn-shoe").src.match(/images.+$/)[0]
 	selectedEye.value = document.querySelector("#worn-eye").src.match(/images.+$/)[0]
 	selectedEyebrow.value = document.querySelector("#worn-eyebrow").src.match(/images.+$/)[0]
 	if (document.querySelector("#worn-spectacle").src.indexOf("spectacle") != -1 ){ 
@@ -228,7 +222,7 @@ Array.from(categories).forEach(function (category) {
 }
 
 // ITEM CONTROL
-);var itemCategories = ['skin', 'top', 'bottom', 'shoe', 'hair', 'eye', 'nose', 'mouth', 'eyebrow', 'spectacle', 'facehair','head'];
+);var itemCategories = ['skin', 'hair', 'eye', 'nose', 'mouth', 'eyebrow', 'spectacle', 'facehair','head'];
 var noItem = document.querySelector('.no-item');
 
 Array.from(itemCategories).forEach(function (item) {

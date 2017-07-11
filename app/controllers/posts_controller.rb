@@ -30,12 +30,9 @@ class PostsController < ApplicationController
 
 	def post_params
 		params.require(:post).permit(:skin, 
-									:head, 
-									:top, 
-									:bottom, 
+									:head,  
 									:hair, 
 									:hairbacking,
-									:shoe, 
 									:eye, 
 									:eyebrow, 
 									:nose, 
