@@ -257,8 +257,6 @@ Array.from(itemCategories).forEach(function (item) {
 
 // HAIR BACKING CONTROL
 var currentHair = ''
-
-
 var hairs = document.querySelectorAll('.hairs')
 
 Array.from(hairs).forEach(function(hair){
@@ -318,20 +316,20 @@ document.querySelector('#headCategory').addEventListener('click', function(){
 
 // NOSE COLOR CONTROL
 document.querySelector('.nose-button').addEventListener('click', function(){
+	var currentSkinNumber = document.getElementById('worn-skin').src.match(/\d.png/)[0]
 	var noses = document.querySelectorAll('.noses');
 	for (var i = 0; i < noses.length; i++){
-		if ( currentSkin == '' || currentSkin == 'b' ){
+		if ( currentSkinNumber[0] == '0' || currentSkinNumber[0] == '1' ){
 			noses[i].style.backgroundImage = 'url(/images/items/noses/nose' + i + '.png)'
-		} else if (currentSkin == 'c' || currentSkin == 'd' ){
+		} else if (currentSkinNumber[0] == '2' || currentSkinNumber[0] == '3' ){
 			noses[i].style.backgroundImage = 'url(/images/items/noses/noseb' + i + '.png)'
 		}
 	}
 })
 
-var currentNose = '';
 Array.from(document.querySelectorAll('.skins')).forEach(function(skin){
 	skin.addEventListener('click', function(){
-		currentNose = document.querySelector('#worn-nose').src.match(/\d.png/)[0]
+		var currentNose = document.querySelector('#worn-nose').src.match(/\d.png/)[0]
 		if (currentSkin === '' || currentSkin === 'b' ){
 			document.querySelector('#worn-nose').src = 'images/items/noses/nose' + currentNose[0] + '.png'
 		} else if (currentSkin === 'c' || currentSkin === 'd' ){
@@ -343,11 +341,12 @@ Array.from(document.querySelectorAll('.skins')).forEach(function(skin){
 Array.from(document.querySelectorAll('.noses')).forEach(function(nose){
 	nose.addEventListener('click', function(){
 		var currentNose = document.querySelector('#worn-nose').src.match(/\d.png/)[0]
-		if (currentSkin === '' || currentSkin === 'b' ){
+		var currentSkinNumber = document.getElementById('worn-skin').src.match(/\d.png/)[0]
+		if (currentSkinNumber[0] == '0' || currentSkinNumber[0] == '1' ){
 			document.querySelector('#worn-nose').src = 'images/items/noses/nose' + currentNose[0] + '.png'
-		} else if (currentSkin ==='c' || currentSkin === 'd' ){
+		} else if (currentSkinNumber[0] == '2' || currentSkinNumber[0] == '3'  ){
 			document.querySelector('#worn-nose').src = 'images/items/noses/noseb' + currentNose[0] + '.png'
-		} else { console.log("UH OH!")}
+		} 
 	})
 })
 
@@ -355,22 +354,24 @@ Array.from(document.querySelectorAll('.noses')).forEach(function(nose){
 // MOUTH COLOR CONTROL
 document.querySelector('.mouth-button').addEventListener('click', function(){
 	var mouths = document.querySelectorAll('.mouths');
+	var currentSkinNumber = document.getElementById('worn-skin').src.match(/\d.png/)[0]
 	for (var i = 0; i < mouths.length; i++){
-		if ( currentSkin == '' || currentSkin == 'b' ){
+		if (currentSkinNumber[0] == '0' || currentSkinNumber[0] == '1' ){
 			mouths[i].style.backgroundImage = 'url(/images/items/mouths/mouth' + i + '.png)'
-		} else if (currentSkin == 'c' || currentSkin == 'd' ){
+		} else if (currentSkinNumber[0] == '2' || currentSkinNumber[0] == '3' ){
 			mouths[i].style.backgroundImage = 'url(/images/items/mouths/mouthb' + i + '.png)'
 		}
 	}
 })
 
-var currentMouth = '';
+
 Array.from(document.querySelectorAll('.skins')).forEach(function(skin){
 	skin.addEventListener('click', function(){
-		currentMouth = document.querySelector('#worn-mouth').src.match(/\d.png/)[0]
-		if (currentSkin === '' || currentSkin === 'b' ){
+		var currentSkinNumber = document.getElementById('worn-skin').src.match(/\d.png/)[0]
+		var currentMouth = document.querySelector('#worn-mouth').src.match(/\d.png/)[0]
+		if (currentSkinNumber[0] == '0' || currentSkinNumber[0] == '1' ){
 			document.querySelector('#worn-mouth').src = 'images/items/mouths/mouth' + currentMouth[0] + '.png'
-		} else if (currentSkin === 'c' || currentSkin === 'd' ){
+		} else if (currentSkinNumber[0] == '2' || currentSkinNumber[0] == '3' ){
 			document.querySelector('#worn-mouth').src = 'images/items/mouths/mouthb' + currentMouth[0] + '.png'
 		} 
 	})
@@ -378,18 +379,19 @@ Array.from(document.querySelectorAll('.skins')).forEach(function(skin){
 
 Array.from(document.querySelectorAll('.mouths')).forEach(function(mouth){
 	mouth.addEventListener('click', function(){
+		var currentSkinNumber = document.getElementById('worn-skin').src.match(/\d.png/)[0]
 		var currentMouth = document.querySelector('#worn-mouth').src.match(/\d.png/)[0]
-		if (currentSkin[0] === '0' || currentSkin[0] === 'b' ){
+		if (currentSkinNumber[0] == '0' || currentSkinNumber[0] == '1' ){
 			document.querySelector('#worn-mouth').src = 'images/items/mouths/mouth' + currentMouth[0] + '.png'
-		} else if (currentSkin[0] ==='c' || currentSkin[0] === 'd' ){
+		} else if (currentSkinNumber[0] == '2' || currentSkinNumber[0] == '3' ){
 			document.querySelector('#worn-mouth').src = 'images/items/mouths/mouthb' + currentMouth[0] + '.png'
-		} else { console.log("UH OH!")}
+		} 
 	})
 })
 
 
 //RANDOMIZER!! 
-// issues - no skintone
+// issues - no skintone!!!! randomized heads are always WHITE EW
 
 function randomIntFromInterval(min,max)
 {
@@ -398,21 +400,48 @@ function randomIntFromInterval(min,max)
 
 var randomizer = document.getElementById('randomizer')
 var itemLists = document.querySelectorAll('.randomizable-item-list')
-var randomizableItems = ['head', 'hair', 'eye', 'eyebrow', 'spectacle', 'nose', 'mouth', 'facehair']
+var randomizableItems = ['skin', 'head', 'hair', 'eye', 'eyebrow', 'spectacle', 'nose', 'mouth', 'facehair']
 var clothingNumber = ''
 
 randomizer.addEventListener('click', function(){
+	document.getElementById('worn-facehair').style.display = "block"
+	document.getElementById('worn-spectacle').style.display = "block"
 	for ( var i = 0; i < itemLists.length; i++ ){
 		clothingNumber = randomIntFromInterval(0, (itemLists[i].children.length - 1))
 		var rCategory = randomizableItems[i]
 		var rItem = document.querySelector('#worn-' + rCategory)
 		rItem.src = ('/images/items/' + randomizableItems[i] + 's/' + randomizableItems[i] + clothingNumber + '.png')
-
-		console.log(clothingNumber)
+		
 		Array.from(itemLists[i].children).forEach(function(item){
 			item.classList.remove('item-selected')
 		})
 		itemLists[i].children[clothingNumber].classList.add('item-selected')
+	
+
+		var currentMouth = document.getElementById('worn-mouth')
+		var currentMouthNumber = currentMouth.src.match(/\d.png/)[0]
+		var currentNose = document.getElementById('worn-nose') 
+		var currentNoseNumber = currentNose.src.match(/\d.png/)[0]
+		var currentWornHead = document.getElementById('worn-head')
+		var currentHeadNumber = currentWornHead.src.match(/\d.png/)[0]
+		var skin = document.getElementById('worn-skin').src
+		if ( skin.indexOf('skin0.png') !== -1 ){
+			currentWornHead.src = '/images/items/heads/head' + currentHeadNumber[0] + '.png'
+			currentNose.src = '/images/items/noses/nose' + currentNoseNumber[0] + '.png'
+			currentMouth.src = 'images/items/mouths/mouth' + currentMouthNumber[0] + '.png'
+		} else if ( skin.indexOf('skin1.png') !== -1 ){
+			currentWornHead.src = '/images/items/heads/headb' + currentHeadNumber[0] + '.png'
+			currentNose.src = '/images/items/noses/nose' + currentNoseNumber[0] + '.png'
+			currentMouth.src = 'images/items/mouths/mouth' + currentMouthNumber[0] + '.png'
+		} else if ( skin.indexOf('skin2.png') !== -1 ){
+			currentWornHead.src = '/images/items/heads/headc' + currentHeadNumber[0] + '.png'
+			currentNose.src = '/images/items/noses/noseb' + currentNoseNumber[0] + '.png'
+			currentMouth.src = 'images/items/mouths/mouthb' + currentMouthNumber[0] + '.png'
+		} else if ( skin.indexOf('skin3.png') !== -1 ){
+			currentWornHead.src = '/images/items/heads/headd' + currentHeadNumber[0] + '.png'
+			currentNose.src = '/images/items/noses/noseb' + currentNoseNumber[0] + '.png'
+			currentMouth.src = 'images/items/mouths/mouthb' + currentMouthNumber[0] + '.png'
+		}
 
 		if (rItem.id == "worn-hair"){
 			var hairBacking = document.querySelector('#hair-backing')
@@ -435,6 +464,29 @@ randomizer.addEventListener('click', function(){
 			}
 		}
 	}
+
+	var mouths = document.querySelectorAll('.mouths')
+	var currentSkinNumber = document.getElementById('worn-skin').src.match(/\d.png/)[0]
+	for (var i = 0; i < mouths.length; i++ ){
+		if ( currentSkinNumber[0] == '0' || currentSkinNumber[0] ==  '1' ){
+			mouths[i].style.backgroundImage = 'url(/images/items/mouths/mouth' + i + '.png)'
+		} else if (currentSkinNumber[0] == '2' || currentSkinNumber[0] ==  '3'){
+			mouths[i].style.backgroundImage = 'url(/images/items/mouths/mouthb' + i + '.png)'
+		}
+	}
+
+	var noses = document.querySelectorAll('.noses')
+	for (var i = 0; i < noses.length; i++ ){
+		if ( currentSkinNumber[0] == '0' || currentSkinNumber[0] ==  '1' ){
+			noses[i].style.backgroundImage = 'url(/images/items/noses/nose' + i + '.png)'
+		} else if (currentSkinNumber[0] == '2' || currentSkinNumber[0] ==  '3'){
+			noses[i].style.backgroundImage = 'url(/images/items/noses/noseb' + i + '.png)'
+		}
+	}
+
+
+
+	
 })
 
 

@@ -25,6 +25,10 @@ a {
     display: none; 
 }
 
+.visible-on-white {
+    text-shadow: black 1px 0px 6px;
+}
+
 .notice, .alert {
 	position: absolute;
     color: white;
