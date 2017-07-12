@@ -26,7 +26,7 @@
 <!-- <a href="comments/new"> -->
 
 <!-- </a> -->
-
+<div id="randomizer">randomizer!</div>
 
 <div id="stats-button"><%= link_to 'comments', 'comments'%></div>
 
@@ -79,7 +79,7 @@
 			</ul>
 		</div> 
 		<div data-category="heads" class="heads-section section" id="item-view">
-			<ul>
+			<ul class="randomizable-item-list">
 				<li data-itemnumber="0" class=" item-selected heads item item-container"></li>
 				<li data-itemnumber="1" class=" heads item item-container"></li>
 				<li data-itemnumber="2" class=" heads item item-container"></li>
@@ -88,7 +88,7 @@
 		</div> 
 
 		<div data-category="hairs" class="hairs-section section" id="item-view">
-			<ul>
+			<ul class="randomizable-item-list">
 				<li data-itemnumber="0" class="item-selected hairs item item-container"></li>
 				<li data-itemnumber="1" class="hairs item item-container"></li>
 				<li data-itemnumber="2" class="hairs item item-container"></li>
@@ -107,7 +107,7 @@
 		</div>
 
 		<div data-category="eyes" class="eyes-section section" id="item-view">
-			<ul>
+			<ul class="randomizable-item-list">
 				<li data-itemnumber="0" class="item-selected eyes item item-container"></li>
 				<li data-itemnumber="1" class="eyes item item-container"></li>
 				<li data-itemnumber="2" class="eyes item item-container"></li>
@@ -123,7 +123,7 @@
 		</div>
 
 		<div data-category="eyebrows" class="eyebrows-section section" id="item-view">
-			<ul>
+			<ul class="randomizable-item-list">
 				<li data-itemnumber="0" class="item-selected eyebrows item item-container"></li>
 				<li data-itemnumber="1" class="eyebrows item item-container"></li>
 				<li data-itemnumber="2" class="eyebrows item item-container"></li>
@@ -136,7 +136,7 @@
 		</div>
 
 		<div data-category="spectacles" class="spectacles-section section" id="item-view">
-			<ul>
+			<ul class="randomizable-item-list">
 				<li data-itemnumber="0" class="spectacles item item-container"></li>
 				<li data-itemnumber="1" class="spectacles item item-container"></li>
 				<li data-itemnumber="2" class="spectacles item item-container"></li>
@@ -148,7 +148,7 @@
 		</div>
 
 		<div data-category="noses" class="noses-section section" id="item-view">
-			<ul>
+			<ul class="randomizable-item-list">
 				<li data-itemnumber="0" class="item-selected noses item item-container"></li>
 				<li data-itemnumber="1" class="noses item item-container"></li>
 				<li data-itemnumber="2" class="noses item item-container"></li>
@@ -160,7 +160,7 @@
 		</div>
 
 		<div data-category="mouths" class="mouths-section section" id="item-view">
-			<ul>
+			<ul class="randomizable-item-list">
 				<li data-itemnumber="0" class="item-selected mouths item item-container"></li>
 				<li data-itemnumber="1" class="mouths item item-container"></li>
 				<li data-itemnumber="2" class="mouths item item-container"></li>
@@ -173,7 +173,7 @@
 		</div> 
 
 		<div data-category="facehairs" class="facehairs-section section" id="item-view">
-			<ul>
+			<ul class="randomizable-item-list">
 				<li data-itemnumber="0" class="facehairs item item-container"></li>
 				<li data-itemnumber="1" class="facehairs item item-container"></li>
 				<li data-itemnumber="2" class="facehairs item item-container"></li>
@@ -185,4 +185,12 @@
 
 	</div>
 </body>
+<script type="text/javascript">
+// hide broken (missing) images. (if an avatar has no glasses, beard, or hair-backing)
+	document.addEventListener("DOMContentLoaded", function(event) {
+	Array.from(document.querySelectorAll('img')).forEach(function(img){
+  		img.onerror = function(){this.style.display='none';};
+   })
+});
+</script>
 <%= javascript_include_tag('test.js') %>

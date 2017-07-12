@@ -74,6 +74,15 @@ a {
 	font-size: 10px;
 }
 
+#randomizer {
+	position: absolute;
+    left: 15px;
+    bottom: 152px;
+    font-size: 10px;
+    color: white;
+    z-index: 10;
+}
+
 #next-button:hover {
 	cursor: pointer;
 }

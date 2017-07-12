@@ -39,10 +39,7 @@ selectButton.addEventListener('click', function(){
 	}
 })
 
-
-
 // MISC FUNCTIONS AND VARIABLES
-
 var categories = document.querySelectorAll('.category');
 
 function updateSliderRange(slider, min, max) {
@@ -260,14 +257,16 @@ Array.from(itemCategories).forEach(function (item) {
 
 // HAIR BACKING CONTROL
 var currentHair = ''
-var hairBacking = document.querySelector('#hair-backing')
+
 
 var hairs = document.querySelectorAll('.hairs')
 
 Array.from(hairs).forEach(function(hair){
 	hair.addEventListener('click', function(){
+		var hairBacking = document.querySelector('#hair-backing')
 		var currentHair = document.querySelector('#worn-hair').src.match(/\d+.png/)[0]
 		hairBacking.style.opacity = "1";
+		hairBacking.style.display = "block"
 		if (currentHair === '1.png' ){
 			hairBacking.src = "/images/items/hairs/hairb1.png"
 		} else if (currentHair === '4.png') {
@@ -387,3 +386,58 @@ Array.from(document.querySelectorAll('.mouths')).forEach(function(mouth){
 		} else { console.log("UH OH!")}
 	})
 })
+
+
+//RANDOMIZER!! 
+// issues - no skintone
+
+function randomIntFromInterval(min,max)
+{
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+var randomizer = document.getElementById('randomizer')
+var itemLists = document.querySelectorAll('.randomizable-item-list')
+var randomizableItems = ['head', 'hair', 'eye', 'eyebrow', 'spectacle', 'nose', 'mouth', 'facehair']
+var clothingNumber = ''
+
+randomizer.addEventListener('click', function(){
+	for ( var i = 0; i < itemLists.length; i++ ){
+		clothingNumber = randomIntFromInterval(0, (itemLists[i].children.length - 1))
+		var rCategory = randomizableItems[i]
+		var rItem = document.querySelector('#worn-' + rCategory)
+		rItem.src = ('/images/items/' + randomizableItems[i] + 's/' + randomizableItems[i] + clothingNumber + '.png')
+
+		console.log(clothingNumber)
+		Array.from(itemLists[i].children).forEach(function(item){
+			item.classList.remove('item-selected')
+		})
+		itemLists[i].children[clothingNumber].classList.add('item-selected')
+
+		if (rItem.id == "worn-hair"){
+			var hairBacking = document.querySelector('#hair-backing')
+			var currentHair = document.querySelector('#worn-hair').src.match(/\d+.png/)[0]
+			hairBacking.style.opacity = "1";
+			hairBacking.style.display = "block"
+			if (currentHair == '1.png' ){
+				hairBacking.src = "/images/items/hairs/hairb1.png"
+			} else if (currentHair == '4.png') {
+				hairBacking.src = "/images/items/hairs/hairb4.png"
+			} else if (currentHair == '6.png'){
+				hairBacking.src = "/images/items/hairs/hairb6.png"
+			} else if (currentHair == '11.png') {
+				hairBacking.src = "/images/items/hairs/hairb11.png"
+			} else if (currentHair == '12.png'){
+				hairBacking.src = "/images/items/hairs/hairb12.png"
+			} else {
+				hairBacking.src = "";
+				hairBacking.style.opacity = "0";
+			}
+		}
+	}
+})
+
+
+
+
+

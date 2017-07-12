@@ -39,7 +39,7 @@
 
 
 <script type="text/javascript">
-// hide broken (missing) images. (no glasses, beard, or hair-backing)
+// hide broken (missing) images. (if an avatar has no glasses, beard, or hair-backing)
 	document.addEventListener("DOMContentLoaded", function(event) {
 	Array.from(document.querySelectorAll('img')).forEach(function(img){
   		img.onerror = function(){this.style.display='none';};
