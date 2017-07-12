@@ -129,6 +129,8 @@ var whiteColor = document.querySelector('#white');
 
 var scalable = document.querySelectorAll('.scalable');
 
+var hairBacking = document.getElementById('hair-backing')
+
 Array.from(categories).forEach(function (category) {
 	category.addEventListener('click', function () {
 		currentItem = document.querySelector('#worn-' + category.dataset.category.slice(0, -1));
@@ -161,6 +163,7 @@ Array.from(categories).forEach(function (category) {
 			scaler.classList.remove('slider-active');
 		}
 	});
+
 
 	blackColor.addEventListener('click', function () {
 		currentItem.style.filter = 'grayscale(200%) brightness(0.5)';
@@ -484,9 +487,18 @@ randomizer.addEventListener('click', function(){
 		}
 	}
 
-
-
-	
+	var heads = document.querySelectorAll('.heads')
+	for (var i = 0; i < heads.length; i++ ){
+		if ( currentSkinNumber[0] == '0'){
+			heads[i].style.backgroundImage = 'url(/images/items/heads/head' + i + '.png)'
+		} else if (currentSkinNumber[0] == '1'){
+			heads[i].style.backgroundImage = 'url(/images/items/heads/headb' + i + '.png)'
+		} else if (currentSkinNumber[0] == '2'){
+			heads[i].style.backgroundImage = 'url(/images/items/heads/headc' + i + '.png)'
+		} else if (currentSkinNumber[0] == '3'){
+			heads[i].style.backgroundImage = 'url(/images/items/heads/headd' + i + '.png)'
+		}
+	}
 })
 
 
