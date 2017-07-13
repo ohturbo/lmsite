@@ -41,6 +41,7 @@ selectButton.addEventListener('click', function(){
 
 // MISC FUNCTIONS AND VARIABLES
 var categories = document.querySelectorAll('.category');
+var currentHead = document.getElementById("worn-head")
 
 function updateSliderRange(slider, min, max) {
 	slider.noUiSlider.updateOptions({
@@ -49,6 +50,21 @@ function updateSliderRange(slider, min, max) {
 			'max': max
 		}
 	});
+}
+
+function setCurrentSkin(){
+	var skin = document.getElementById('worn-skin').src
+	if (skin.match(/\d.png/)[0] == '0.png'){
+		currentSkin = ''
+	} if (skin.match(/\d.png/)[0] == '1.png'){
+		currentSkin = 'b'
+	} if (skin.match(/\d.png/)[0] == '2.png'){
+		currentSkin = 'c'
+	} if (skin.match(/\d.png/)[0] == '3.png'){
+		currentSkin = 'd'
+	}
+
+	return currentSkin
 }
 
 // PREVENT IOS BOUNCE - NOT PERFECT
@@ -308,22 +324,13 @@ Array.from(skins).forEach(function(skin){
 	})
 })
 
-
 document.querySelector('#headCategory').addEventListener('click', function(){
 	var currentHeadNumber = document.getElementById("worn-head").src.match(/\d.png/)[0]
 	var currentSkinNumber = document.getElementById('worn-skin').src.match(/\d.png/)[0]
 	var heads = document.querySelectorAll('.heads')
 
 	for ( var i = 0; i < heads.length; i++){
-		if (currentSkinNumber[0] == '0' ){
-			heads[i].style.backgroundImage = 'url(/images/items/heads/head' + currentHeadNumber;
-		} else if (currentSkinNumber[0] == '1' ){
-			heads[i].style.backgroundImage = 'url(/images/items/heads/headb' + currentHeadNumber;
-		} else if (currentSkinNumber[0] == '2' ){
-			heads[i].style.backgroundImage = 'url(/images/items/heads/headc' + currentHeadNumber;
-		} else if (currentSkinNumber[0] == '3' ){
-			heads[i].style.backgroundImage = 'url(/images/items/heads/headd' + currentHeadNumber;
-		} 
+		heads[i].style.backgroundImage = 'url(images/items/heads/head' + currentSkin + i + '.png)' 
 	}
 })
 
@@ -417,6 +424,7 @@ var randomizableItems = ['skin', 'head', 'hair', 'eye', 'eyebrow', 'spectacle', 
 var clothingNumber = ''
 
 randomizer.addEventListener('click', function(){
+
 	document.getElementById('worn-facehair').style.display = "block"
 	document.getElementById('worn-spectacle').style.display = "block"
 	for ( var i = 0; i < itemLists.length; i++ ){
@@ -477,6 +485,8 @@ randomizer.addEventListener('click', function(){
 			}
 		}
 	}
+
+	setCurrentSkin();
 
 	var mouths = document.querySelectorAll('.mouths')
 	var currentSkinNumber = document.getElementById('worn-skin').src.match(/\d.png/)[0]
