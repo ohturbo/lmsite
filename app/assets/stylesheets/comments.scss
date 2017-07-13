@@ -17,6 +17,24 @@ body {
 	height: 100%;
 }
 
+input {
+	background-color: white;
+    margin: auto;
+    display: block;
+    margin-top: 10px;
+    width: 87%;
+    border: none;
+    height: 35px;
+    font-size: 14px;
+}
+
+label {
+	color: white;
+	margin-bottom: 10px;
+	text-align: center;
+	display: block;
+}
+
 .comment {
 	background-color: #edf7ff;
 	width: 80%;

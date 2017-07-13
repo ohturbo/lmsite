@@ -67,6 +67,29 @@ function setCurrentSkin(){
 	return currentSkin
 }
 
+function manageHairBacking(){
+	var hairBacking = document.querySelector('#hair-backing')
+	var currentHair = document.querySelector('#worn-hair').src.match(/\d+.png/)[0]
+	hairBacking.style.opacity = "1";
+	hairBacking.style.display = "block"
+	if (currentHair == '1.png' ){
+		hairBacking.src = "/images/items/hairs/hairb1.png"
+	} else if (currentHair == '4.png') {
+		hairBacking.src = "/images/items/hairs/hairb4.png"
+	} else if (currentHair == '6.png'){
+		hairBacking.src = "/images/items/hairs/hairb6.png"
+	} else if (currentHair == '11.png') {
+		hairBacking.src = "/images/items/hairs/hairb11.png"
+	} else if (currentHair == '12.png'){
+		hairBacking.src = "/images/items/hairs/hairb12.png"
+	} else if (currentHair == '14.png'){
+		hairBacking.src = "/images/items/hairs/hairb14.png"
+	} else {
+		hairBacking.src = "";
+		hairBacking.style.opacity = "0";
+	}
+}
+
 // PREVENT IOS BOUNCE - NOT PERFECT
 var content = document.getElementById('avatar-view');
 content.addEventListener('touchstart', function(event) {
@@ -280,24 +303,7 @@ var hairs = document.querySelectorAll('.hairs')
 
 Array.from(hairs).forEach(function(hair){
 	hair.addEventListener('click', function(){
-		var hairBacking = document.querySelector('#hair-backing')
-		var currentHair = document.querySelector('#worn-hair').src.match(/\d+.png/)[0]
-		hairBacking.style.opacity = "1";
-		hairBacking.style.display = "block"
-		if (currentHair === '1.png' ){
-			hairBacking.src = "/images/items/hairs/hairb1.png"
-		} else if (currentHair === '4.png') {
-			hairBacking.src = "/images/items/hairs/hairb4.png"
-		} else if (currentHair === '6.png'){
-			hairBacking.src = "/images/items/hairs/hairb6.png"
-		} else if (currentHair === '11.png') {
-			hairBacking.src = "/images/items/hairs/hairb11.png"
-		} else if (currentHair === '12.png'){
-			hairBacking.src = "/images/items/hairs/hairb12.png"
-		} else {
-			hairBacking.src = "";
-			hairBacking.style.opacity = "0";
-		}
+		manageHairBacking()
 	})
 })
 
@@ -465,44 +471,25 @@ randomizer.addEventListener('click', function(){
 		}
 
 		if (rItem.id == "worn-hair"){
-			var hairBacking = document.querySelector('#hair-backing')
-			var currentHair = document.querySelector('#worn-hair').src.match(/\d+.png/)[0]
-			hairBacking.style.opacity = "1";
-			hairBacking.style.display = "block"
-			if (currentHair == '1.png' ){
-				hairBacking.src = "/images/items/hairs/hairb1.png"
-			} else if (currentHair == '4.png') {
-				hairBacking.src = "/images/items/hairs/hairb4.png"
-			} else if (currentHair == '6.png'){
-				hairBacking.src = "/images/items/hairs/hairb6.png"
-			} else if (currentHair == '11.png') {
-				hairBacking.src = "/images/items/hairs/hairb11.png"
-			} else if (currentHair == '12.png'){
-				hairBacking.src = "/images/items/hairs/hairb12.png"
-			} else {
-				hairBacking.src = "";
-				hairBacking.style.opacity = "0";
-			}
+			manageHairBacking()
 		}
 	}
 
 	setCurrentSkin();
 
-	document.getElementById('worn-spectacle').style.display = "none"
+
+	// minimize chances of getting a stache or specs
 	var spectacleChance = randomIntFromInterval(0, 10);
-	if ( spectacleChance > 6 ){
-		document.getElementById('worn-spectacle').style.display = "block"
-	} else {
-		document.getElementById('worn-spectacle').style.display = "none"
+	if ( spectacleChance > 5 ){
+		console.log('no specs')
+		document.getElementById('worn-spectacle').src = ""
 	}
 
-	document.getElementById('worn-facehair').style.display = "none"
 	var facehairChance = randomIntFromInterval(0, 10);
-	if ( facehairChance > 6 ){
-		document.getElementById('worn-facehair').style.display = "block"
-	} else {
-		document.getElementById('worn-facehair').style.display = "none"
-	}
+	if ( facehairChance > 5 ){
+		console.log('no stache')
+		document.getElementById('worn-facehair').src = ""
+	} 
 
 	var mouths = document.querySelectorAll('.mouths')
 	var currentSkinNumber = document.getElementById('worn-skin').src.match(/\d.png/)[0]
@@ -536,8 +523,5 @@ randomizer.addEventListener('click', function(){
 		}
 	}
 })
-
-
-
 
 
