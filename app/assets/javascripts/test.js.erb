@@ -291,6 +291,7 @@ var skins = document.querySelectorAll('.skins');
 Array.from(skins).forEach(function(skin){
 	skin.addEventListener('click', function(){
 		var headNumber = document.querySelector("#worn-head").src.match(/\d.png/)[0]
+		var currentSkinNumber = document.getElementById('worn-skin').src.match(/\d.png/)[0]
 		if (skin.style.backgroundImage.includes("skin1")){
 			document.querySelector('#worn-head').src = "images/items/heads/headb" + headNumber[0] + ".png"
 			currentSkin = 'b';
@@ -309,12 +310,21 @@ Array.from(skins).forEach(function(skin){
 
 
 document.querySelector('#headCategory').addEventListener('click', function(){
-	var skinableCategory = document.querySelectorAll('.heads')
-	Array.from(itemCategories).forEach(function (item) {
-		for (var i = 0; i < skinableCategory.length; i++) {
-			skinableCategory[i].style.backgroundImage = 'url(/images/items/' + item + 's/' + item + currentSkin + i + '.png)';
-		}
-	})
+	var currentHeadNumber = document.getElementById("worn-head").src.match(/\d.png/)[0]
+	var currentSkinNumber = document.getElementById('worn-skin').src.match(/\d.png/)[0]
+	var heads = document.querySelectorAll('.heads')
+
+	for ( var i = 0; i < heads.length; i++){
+		if (currentSkinNumber[0] == '0' ){
+			heads[i].style.backgroundImage = 'url(/images/items/heads/head' + currentHeadNumber;
+		} else if (currentSkinNumber[0] == '1' ){
+			heads[i].style.backgroundImage = 'url(/images/items/heads/headb' + currentHeadNumber;
+		} else if (currentSkinNumber[0] == '2' ){
+			heads[i].style.backgroundImage = 'url(/images/items/heads/headc' + currentHeadNumber;
+		} else if (currentSkinNumber[0] == '3' ){
+			heads[i].style.backgroundImage = 'url(/images/items/heads/headd' + currentHeadNumber;
+		} 
+	}
 })
 
 // NOSE COLOR CONTROL
