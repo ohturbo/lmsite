@@ -488,6 +488,22 @@ randomizer.addEventListener('click', function(){
 
 	setCurrentSkin();
 
+	document.getElementById('worn-spectacle').style.display = "none"
+	var spectacleChance = randomIntFromInterval(0, 10);
+	if ( spectacleChance > 6 ){
+		document.getElementById('worn-spectacle').style.display = "block"
+	} else {
+		document.getElementById('worn-spectacle').style.display = "none"
+	}
+
+	document.getElementById('worn-facehair').style.display = "none"
+	var facehairChance = randomIntFromInterval(0, 10);
+	if ( facehairChance > 6 ){
+		document.getElementById('worn-facehair').style.display = "block"
+	} else {
+		document.getElementById('worn-facehair').style.display = "none"
+	}
+
 	var mouths = document.querySelectorAll('.mouths')
 	var currentSkinNumber = document.getElementById('worn-skin').src.match(/\d.png/)[0]
 	for (var i = 0; i < mouths.length; i++ ){
