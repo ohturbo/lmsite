@@ -90,6 +90,12 @@ function manageHairBacking(){
 	}
 }
 
+function hideAlert(){
+	document.querySelector('.alert').classList.add('alert-hidden')
+}
+setTimeout(hideAlert, 2000)
+
+
 // PREVENT IOS BOUNCE - NOT PERFECT
 var content = document.getElementById('avatar-view');
 content.addEventListener('touchstart', function(event) {

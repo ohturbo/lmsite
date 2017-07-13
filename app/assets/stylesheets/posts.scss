@@ -1,10 +1,3 @@
-$charcoal: #2b2b2b;
-$off-white: #fdfdfd;
-$granite: #d4d4d4;
-$ash: #fafafa;
-$category-view: #ffffff;
-$primary-color: #002E44; 
-
 @import 'avatar';
 
 html, body {
@@ -37,6 +30,13 @@ a {
 	margin-left: auto; 
 	margin-right: auto; 
 	text-align: center;
+	transition-property: 'margin-top';
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.17, 1.21);
+}
+
+.alert-hidden {
+	margin-top: -30px;
 }
 
 .section {
@@ -92,7 +92,7 @@ a {
 }
 
 #avatar-view {
-	background-color: $ash;
+	background-color: #fafafa;
 	height: 100%;
 	display: flex;
 	overflow: hidden;
@@ -124,10 +124,10 @@ a {
 	overflow-y: scroll; /* has to be scroll, not auto */
 	-webkit-overflow-scrolling: touch;
 	height: 40px;
-	background-color: $category-view;
+	background-color: #ffffff;
 	display: flex;
-	margin-bottom: -1px;
-	border-bottom: 1px solid black;
+	margin-bottom: 0px;
+    border-bottom: 1px solid #eaeaea;
 	ul {
 		overflow: scroll;
 		padding: 0;
@@ -136,7 +136,7 @@ a {
 		float: left;
 		margin: auto;
 		li {
-			color: $primary-color;
+			color:  #002E44;
 			margin-right: 20px;
 			margin-left: 20px;
 			margin-top: 10px;
@@ -147,7 +147,7 @@ a {
 }
 
 .category-selected {
-	border-bottom: 3px solid $primary-color;
+	border-bottom: 3px solid  #002E44;
     margin-top: 10px;
     padding-bottom: 10px;
 }
@@ -223,7 +223,7 @@ a {
 
 #item-view {
 	height: 70px;
-	background-color: $off-white;
+	background-color: #fdfdfd;
 	display: none;
 	ul {
 		overflow: scroll;
