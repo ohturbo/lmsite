@@ -481,13 +481,11 @@ randomizer.addEventListener('click', function(){
 	// minimize chances of getting a stache or specs
 	var spectacleChance = randomIntFromInterval(0, 10);
 	if ( spectacleChance > 5 ){
-		console.log('no specs')
 		document.getElementById('worn-spectacle').src = ""
 	}
 
 	var facehairChance = randomIntFromInterval(0, 10);
 	if ( facehairChance > 5 ){
-		console.log('no stache')
 		document.getElementById('worn-facehair').src = ""
 	} 
 
