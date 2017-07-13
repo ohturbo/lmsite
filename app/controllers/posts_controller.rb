@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 		@post = Post.new(post_params)
 
 		if @post.save
-			redirect_to comments_path
+			redirect_to new_comment_path
 		else
 			render 'new'
 		end

@@ -1,4 +1,4 @@
 <%= simple_form_for @comment do |f| %>
-  <%= f.input :content, placeholder: 'Tell us what you thought', label: false;%>
+  <%= f.input :content, placeholder: 'Tell us what you thought', label: false, required: true%>
   <%= f.submit %>
 <% end %>
