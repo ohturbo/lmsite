@@ -528,4 +528,63 @@ randomizer.addEventListener('click', function(){
 	}
 })
 
+// THUMBNAIL CONTROL
+
+Array.from(skins).forEach(function(skin){
+	skin.style.backgroundImage = 'hidden'
+	skin.style.backgroundPosition = '-50px';
+
+})
+
+skins[0].style.backgroundColor = '#f5d6be'
+skins[1].style.backgroundColor = '#f2ceb0'
+skins[2].style.backgroundColor = '#bb8a76'
+skins[3].style.backgroundColor = '#714226'
+
+for ( var i = 0; i < hairs.length; i++ ){
+	hairs[i].style.backgroundPosition = '-50px'
+	var hairThumb = document.createElement('img')
+	hairThumb.src = '/images/items/hairs/hair' + i + 'thumb.png'
+	hairThumb.style.width = '100%'
+	hairThumb.style.marginLeft = 0;
+	hairThumb.style.opacity = 1;
+	hairs[i].appendChild(hairThumb)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
