@@ -1,5 +1,6 @@
 'use strict';
 
+var loadingScreen = document.getElementById('load-screen');
 var selectButton = document.querySelector('#next-button');
 var selections = {};
 
@@ -15,6 +16,8 @@ var selectedMouth = document.getElementById('post_mouth');
 var selectedFacehair = document.getElementById('post_facehair');
 
 selectButton.addEventListener('click', function(){
+	loadingSceen.classList.add('loading-screen-active');
+
 	selectedSkin.value = document.querySelector("#worn-skin").src.match(/images.+$/)[0]
 	selectedhead.value = document.querySelector("#worn-head").src.match(/images.+$/)[0]
 	selectedHair.value = document.querySelector("#worn-hair").src.match(/images.+$/)[0]
@@ -94,7 +97,6 @@ function hideAlert(){
 	document.querySelector('.alert').classList.add('alert-hidden')
 }
 setTimeout(hideAlert, 2000)
-
 
 // PREVENT IOS BOUNCE - NOT PERFECT
 var content = document.getElementById('avatar-view');
