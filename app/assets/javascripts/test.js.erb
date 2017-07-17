@@ -431,8 +431,6 @@ Array.from(document.querySelectorAll('.mouths')).forEach(function(mouth){
 
 
 //RANDOMIZER!! 
-// issues - no skintone!!!! randomized heads are always WHITE EW
-
 function randomIntFromInterval(min,max)
 {
     return Math.floor(Math.random()*(max-min+1)+min);
@@ -440,11 +438,10 @@ function randomIntFromInterval(min,max)
 
 var randomizer = document.getElementById('randomizer')
 var itemLists = document.querySelectorAll('.randomizable-item-list')
-var randomizableItems = ['skin', 'head', 'hair', 'eye', 'eyebrow', 'spectacle', 'nose', 'mouth', 'facehair']
+var randomizableItems = ['skin', 'head', 'hair', 'eye', 'eyebrow', 'nose', 'mouth', 'spectacle', 'facehair']
 var clothingNumber = ''
 
 randomizer.addEventListener('click', function(){
-
 	document.getElementById('worn-facehair').style.display = "block"
 	document.getElementById('worn-spectacle').style.display = "block"
 	for ( var i = 0; i < itemLists.length; i++ ){
