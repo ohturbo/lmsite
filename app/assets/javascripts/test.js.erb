@@ -1,6 +1,6 @@
 'use strict';
 
-var loadingScreen = document.getElementById('load-screen');
+var loadingScreen = document.getElementById('loading-screen');
 var selectButton = document.querySelector('#next-button');
 var selections = {};
 
@@ -16,7 +16,7 @@ var selectedMouth = document.getElementById('post_mouth');
 var selectedFacehair = document.getElementById('post_facehair');
 
 selectButton.addEventListener('click', function(){
-	loadingSceen.classList.add('loading-screen-active');
+	loadingScreen.classList.add('loading-screen-active');
 
 	selectedSkin.value = document.querySelector("#worn-skin").src.match(/images.+$/)[0]
 	selectedhead.value = document.querySelector("#worn-head").src.match(/images.+$/)[0]

@@ -29,12 +29,11 @@ a {
     opacity: 0;
     visibility: hidden;
     transition-property: 'opacity';
-    transition-duration: 0.4s;
+    transition-duration: 0.1s;
 }
 
-#loading-screen-visible {
-	visibility: visible;
-	opacity: 1;
+.loading-screen-active {
+	visibility: visible !important;
 }
 
 .visible-on-white {
